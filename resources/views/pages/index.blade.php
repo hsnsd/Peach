@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="jumbotron text-center"  style="background-color:#FF875E">
+    <div class="jumbotron text-center"  style="background-color:#FF875E" style="width: 10%">
         <font color="white">
-<h1>Welcome To Peach Blossom!</h1>
+        <h1>Welcome To Peach Blossom!</h1>
         <p>Beautify your house with PeachBlossom. Discover all the colors of nature that suits your garden</p>
         <p><a class="btn btn-primary btn-lg" href="/login" role="button">Login</a> <a class="btn btn-success btn-lg" href="/register" role="button">Register</a></p>
     </font>

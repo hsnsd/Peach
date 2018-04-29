@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class PagesController extends Controller
 {
     public function index(){
@@ -14,7 +14,8 @@ class PagesController extends Controller
 
     public function about(){
         $title = 'About Us';
-        return view('pages.about')->with('title', $title);
+        $products = DB::select('SELECT * from products');
+        return view('pages.about')->with('products', $products);
     }
 
     public function services(){
