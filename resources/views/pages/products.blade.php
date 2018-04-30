@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Products</h1>
+    <h1>Products....</h1>
+     
     @if(count($products) > 0)
         @foreach($products as $product)
             <div class="well">

@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Products</h1>
+       <h1><b>Products</b></h1> 
+    
+
+     <img src="coverPlant.jpg" height="450px" width="900px"/>
+    
+     <hr>
     @if(count($products) > 0)
         @foreach($products as $product)
             <div class="well">
