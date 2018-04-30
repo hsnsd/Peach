@@ -23,7 +23,7 @@ Route::get('/users/{id}/{name}', function($id, $name){
 */
 
 Route::get('/', 'PagesController@index');
-Route::get('/about', 'PagesController@about');
+Route::resource('products', 'ProductsController');
 Route::get('/services', 'PagesController@services');
 
 Route::resource('posts', 'PostsController');

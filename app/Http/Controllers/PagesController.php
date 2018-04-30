@@ -12,10 +12,10 @@ class PagesController extends Controller
         return view('pages.index')->with('title', $title);
     }
 
-    public function about(){
+    public function products(){
         $title = 'About Us';
         $products = DB::select('SELECT * from products');
-        return view('pages.about')->with('products', $products);
+        return view('pages.products')->with('products', $products);
     }
 
     public function services(){
