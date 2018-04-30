@@ -92,7 +92,7 @@
                 <img src="vegetable1.jpg" alt="New York">
                 <div class="carousel-caption">                   
                     <font color='white'><h1>Daily Fresh Fruits</h1>
-                  <h2>Make your own vegetable garden and enjoy fresh and healthy food</h2></font>               
+                  <h2>Make your own kitchen garden and enjoy fresh and healthy food</h2></font>               
                 </div>
               </div>
 
