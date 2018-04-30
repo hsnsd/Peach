@@ -26,6 +26,8 @@ Route::get('/', 'PagesController@index');
 Route::resource('products', 'ProductsController');
 Route::get('/services', 'PagesController@services');
 
+
+
 Route::resource('posts', 'PostsController');
 Auth::routes();
 
