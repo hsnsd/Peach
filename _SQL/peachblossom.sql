@@ -7,4 +7,6 @@ CREATE TABLE `products`(
 
 INSERT INTO `products` VALUES 
 (1, 'Sun Flower', 'flower.jpg', 'This is a flower'),
-(2, 'Gardnener', 'gardener.jpg', 'This is a gardener');
+(2, 'Garden', 'gardener.jpg', 'This is a gardener')
+(3, 'Rose', 'rose.jpg', 'This is a gardener');
+
