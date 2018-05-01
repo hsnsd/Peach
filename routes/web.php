@@ -24,6 +24,7 @@ Route::get('/users/{id}/{name}', function($id, $name){
 
 Route::get('/', 'PagesController@index');
 Route::resource('products', 'ProductsController');
+Route::resource('seeds', 'SeedsController');
 Route::get('/services', 'PagesController@services');
 
 

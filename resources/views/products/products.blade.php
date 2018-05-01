@@ -15,14 +15,14 @@
 
             </div>
             <div class="form-group">
-                    {{ Form::label('a', 'Light Requirements: ') }} 
+                    {{ Form::label('a', 'Light Requirements:  ') }} 
                     {{ Form::radio('light_type', 'Full') }} {{ Form::label('a', 'Full') }}  
                     {{ Form::radio('light_type', 'Partial') }} {{ Form::label('name', 'Partial') }}
                     {{ Form::radio('light_type', 'No Light') }} {{ Form::label('name', 'No Light') }}
 
             </div>
             <div class="form-group">
-                    {{ Form::label('a', 'Plant Life: ') }} 
+                    {{ Form::label('a', 'Plant Life:           ') }} 
                     {{ Form::radio('life_type', 'seasonal') }} {{ Form::label('a', 'Seasonal') }}  
                     {{ Form::radio('life_type', 'annual') }} {{ Form::label('name', 'Annual') }} 
                     {{ Form::radio('life_type', 'evergreen') }} {{ Form::label('name', 'Evergreen') }} 
