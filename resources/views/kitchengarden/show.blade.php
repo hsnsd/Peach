@@ -19,14 +19,12 @@
                 <div class =well>
                 <h2> Description</h2>
                  <br>
-<<<<<<< HEAD
+
                  <p>{{$product->Name}} is locally known as {{$product->local_name}}</p> 
                  <p>The sowing method for this seed is to use {{$product->sowing_method}}</p>
-=======
-                 <p>This is a seed of {{$product->Name}} and is locally known as {{$product->local_name}}</p> 
-                 <p>The sowing method for this seed is {{$product->sowing_method}}</p>
-                 <p>{{$status}}</p>
->>>>>>> 6a59ea42cca344580ef6a2a922129fa4bbb05940
+
+                 <p><b>{{$status}}</b></p>
+
                  
                 </div>
 
