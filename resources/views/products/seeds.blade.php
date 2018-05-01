@@ -3,10 +3,11 @@
 @section('content')
 
 <div id="container">
+<h1><b><font color="#F77143">Kitchen Gardening</font></b></h1>
+<h3>A complete guide to make your own Kitchen Garden </h3>
 
-<h1><b><font color="#F77143"> Buy the correct plants without stepping out of your home! </font></b></h1>
 
-        <h1>Kitchen Gardening</h1>
+        
         @if(count($products) > 0)
             @foreach($products as $product)
                 <div class="well">
