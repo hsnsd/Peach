@@ -55,3 +55,9 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `show_plants`()
     NO SQL
 SELECT * from plants join product where plants.product_id = product.product_id$$
 DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getEndDate`(IN `id` INT(11))
+    NO SQL
+select sowing_time_end as date from seeds where product_id = id$$
+DELIMITER ;
