@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: May 01, 2018 at 06:35 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Host: 127.0.0.1
+-- Generation Time: May 01, 2018 at 07:38 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -105,9 +105,11 @@ CREATE TABLE `plants` (
 --
 
 INSERT INTO `plants` (`product_id`, `height`, `width`, `light`, `water`, `plant_type`, `life`) VALUES
-(1, 8, 5, 'Full', '1to2days', 'flower', 'seasonal'),
-(2, 9, 7, 'Full', '2to3days', 'flower', 'annual'),
-(3, 5, 8, 'Partial', '6to7days', 'leafy plant', 'evergreen');
+(1, 8, 5, 'Full', '1 to 2 days', 'flowering plant', 'seasonal'),
+(2, 9, 7, 'Full', '2 to 3 days', 'flowering plant', 'annual'),
+(3, 5, 8, 'Partial', '6 to 7 days', 'leafy plant', 'evergreen'),
+(35, 8, 7, 'No Light', '2 to 3 days', 'leafy plant', 'evergreen'),
+(36, 500, 400, 'Full', '6 to 7 days', 'tree', 'evergreen');
 
 -- --------------------------------------------------------
 
@@ -156,7 +158,40 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`product_id`, `Name`, `Photo`, `category_id`, `Unit_price`, `created_at`, `updated_at`) VALUES
 (1, 'Mari Gold', 'Marigold.jpg', 1, 80, '2018-04-29 19:00:00', NULL),
 (2, 'Red Rose', 'Rose.jpg', 1, 120, '2018-04-29 19:00:00', NULL),
-(3, 'Purple Shamrock', 'PurpleShamrock.jpg', 1, 200, '2018-04-29 19:00:00', NULL);
+(3, 'Purple Shamrock', 'PurpleShamrock.jpg', 1, 200, '2018-04-29 19:00:00', NULL),
+(4, 'Arum', 'arum.jpg', 2, 50, '2018-04-30 19:00:00', NULL),
+(5, 'Bitter Gourd', 'bittergourd.jpg', 2, 50, '2018-04-30 19:00:00', NULL),
+(6, 'Bottle Gourd', 'bottlegourd.jpg', 2, 50, '2018-04-30 19:00:00', NULL),
+(7, 'Brinjal', 'brinjal.jpg', 2, 40, '2018-04-30 19:00:00', NULL),
+(8, 'Brocoli', 'brocoli.jpg', 2, 100, '2018-04-30 19:00:00', NULL),
+(9, 'Cabbage', 'cabbage.jpg', 2, 70, '2018-04-30 19:00:00', NULL),
+(10, 'Carrot', 'carrot.jpg', 2, 50, '2018-04-30 19:00:00', NULL),
+(11, 'Cauliflower', 'cauliflower.jpg', 2, 100, '2018-04-30 19:00:00', NULL),
+(12, 'Celery', 'celery.jpg', 2, 120, '2018-04-30 19:00:00', NULL),
+(13, 'Coriander', 'coriander.jpg', 2, 50, '2018-04-30 19:00:00', NULL),
+(14, 'Cucumber', 'cucumber.jpg', 2, 100, '2018-04-30 19:00:00', NULL),
+(15, 'Fenugreek', 'fenugreek.jpg', 2, 70, '2018-04-30 19:00:00', NULL),
+(16, 'Garlic', 'garlic.jpg', 2, 50, '2018-04-30 19:00:00', NULL),
+(17, 'Ginger', 'ginger.png', 2, 40, '2018-04-30 19:00:00', NULL),
+(18, 'Hot Peppers', 'hotpepper.jpg', 2, 50, '2018-04-30 19:00:00', NULL),
+(19, 'Lettuce', 'lettuce.jpg', 2, 100, '2018-04-30 19:00:00', NULL),
+(20, 'Mint', 'mint.png', 2, 100, '2018-04-30 19:00:00', NULL),
+(21, 'Mustard', 'mustardplant.jpg', 2, 110, '2018-04-30 19:00:00', NULL),
+(22, 'Okra', 'okra.jpg', 2, 70, '2018-04-30 19:00:00', NULL),
+(23, 'Onion', 'onion.jpg', 2, 30, '2018-04-30 19:00:00', NULL),
+(24, 'Peas', 'peas.jpg', 2, 100, '2018-04-30 19:00:00', NULL),
+(25, 'Potato', 'potato.png', 2, 0, '2018-04-30 19:00:00', NULL),
+(26, 'Radish', 'radish.jpg', 2, 130, '2018-04-30 19:00:00', NULL),
+(27, 'Spinach', 'spinach.jpg', 2, 90, '2018-04-30 19:00:00', NULL),
+(28, 'Sponge Gourd', 'sponge_gourd.png', 2, 80, '2018-04-30 19:00:00', NULL),
+(29, 'Sweet peppers', 'sweetPeppers.jpg', 2, 80, '2018-04-30 19:00:00', NULL),
+(30, 'Sweet Potato', 'sweetpotato.jpg', 2, 60, '2018-04-30 19:00:00', NULL),
+(31, 'Tinda Gourd', 'tindaGourd.jpg', 2, 100, '2018-04-30 19:00:00', NULL),
+(32, 'Tomato', 'tomato.jpg', 2, 100, '2018-04-30 19:00:00', NULL),
+(33, 'Turmeric', 'turmeric.jpg', 2, 50, '2018-04-30 19:00:00', NULL),
+(34, 'Turnip', 'turnip.jpg', 2, 150, '2018-04-30 19:00:00', NULL),
+(35, 'Caladium', 'caladium.jpg', 1, 330, '2018-04-30 19:00:00', NULL),
+(36, 'Tabebuia Argentea', '36.jpg', 1, 10000, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -184,6 +219,58 @@ INSERT INTO `products` (`id`, `name`, `photo`, `description`, `property`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `seeds`
+--
+
+CREATE TABLE `seeds` (
+  `product-id` int(100) NOT NULL,
+  `Name` varchar(255) DEFAULT NULL,
+  `local-name` varchar(255) DEFAULT NULL,
+  `sowing-time` date DEFAULT NULL,
+  `sowing-time-end` date DEFAULT NULL,
+  `sowing-method` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `seeds`
+--
+
+INSERT INTO `seeds` (`product-id`, `Name`, `local-name`, `sowing-time`, `sowing-time-end`, `sowing-method`) VALUES
+(4, 'Arum', 'Arwi', '2018-02-01', '2018-03-31', 'Direct Tubers'),
+(5, 'Bitter Gourd', 'Karela', '2018-02-01', '2018-07-01', 'Direct Seeds'),
+(6, 'Bottle Gourd', 'Kaddu', '2018-02-01', '2018-10-01', 'DirectSeeds'),
+(7, 'Brinjal', 'Baingan', '2018-01-01', '2018-12-31', 'Grow Seedlings'),
+(8, 'Broccoli', 'Broccoli', '2018-09-01', '2018-11-01', 'Grow Seedlings'),
+(9, 'Cabbage', 'Bandgobi', '2018-09-01', '2018-11-01', 'Direct Seedlings'),
+(10, 'Carrot', 'Gaajar', '2018-09-01', '2018-11-01', 'Direct Seeds'),
+(11, 'Cauliflower', 'Phoolgobi', '2018-09-01', '2018-11-30', 'Grow Seedlings'),
+(12, 'Celery', 'Salaad', '2018-09-01', '2018-10-31', 'Direct Seeds'),
+(13, 'Coriander', 'Dhania', '2018-02-01', '2018-11-30', 'Direct Seeds'),
+(14, 'Cucumber', 'Kheera', '2018-02-01', '2018-10-31', 'Seedlings'),
+(15, 'Fenugreek', 'Methi', '2018-09-01', '2018-12-31', 'Direct Seeds'),
+(16, 'Garlic', 'Lehsan', '2018-09-01', '2018-10-31', 'Direct Bulbs'),
+(17, 'Ginger', 'Adrak', '2018-02-01', '2018-03-31', 'Direct Tubers'),
+(18, 'Hot Peppers', 'Mirch', '2018-02-01', '2018-10-31', 'Grow Seedlings'),
+(19, 'Lettuce', 'Salaad Patta', '2018-09-01', '2018-10-31', 'Direct Seeds'),
+(20, 'Mint', 'Podina', '2018-09-01', '2018-10-31', 'Roots / Cuttings'),
+(21, 'Mustard', 'Sarson', '2018-09-01', '2018-10-31', 'Direct Seeds'),
+(22, 'Okra', 'Bhindi', '2018-02-01', '2018-09-30', 'Direct Seeds'),
+(23, 'Onion', 'Pyaaz', '2018-02-01', '2018-10-31', 'Grow Seedlings'),
+(24, 'Peas', 'Matar', '2018-09-15', '2018-11-15', 'Directs Seeds'),
+(25, 'Potato ', 'Aalu', '2018-02-01', '2018-10-31', 'Direct Tubers'),
+(26, 'Radish', 'Mooli', '2018-02-01', '2018-11-30', 'Direct Seeds'),
+(27, 'Spinach', 'Paalak', '2018-03-01', '2018-10-31', 'Direct Seeds'),
+(28, 'Sponge Gourd', 'Turai', '2018-02-01', '2018-10-31', 'Direct Seeds'),
+(29, 'Sweet Peppers', 'Shimla Mirch', '2018-02-01', '2018-11-30', 'Grow Seedlings'),
+(30, 'Sweet Potato', 'Shakar Kandi', '2018-02-01', '2018-03-31', 'Direct Tubers / Cuttings'),
+(31, 'Tinda Gourd', 'Tinda', '2018-02-01', '2018-10-31', 'Direct Seeds'),
+(32, 'Tomato', 'Timaatar', '2018-02-01', '2018-11-30', 'Grow Seedlings'),
+(33, 'Turmeric', 'Haldi', '2018-03-01', '2018-07-31', 'Direct Tubers'),
+(34, 'Turip', 'Shaljam', '2018-09-01', '2018-11-30', 'Direct Seeds');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -202,7 +289,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'Soha Khan', 'so@gmail.com', '$2y$10$TFNf7dsF8QZbdPIEvFOdiexx./bo8VP6CukZFt2tK87mGMWI.zO7i', '9CwMrYCAjQbul19Q7HdIDNlCoYyFLN6458xg1aB0cdZY0wS0eonFeMgoQgnb', '2018-04-29 10:40:30', '2018-04-29 10:40:30');
+(3, 'Soha Khan', 'so@gmail.com', '$2y$10$TFNf7dsF8QZbdPIEvFOdiexx./bo8VP6CukZFt2tK87mGMWI.zO7i', '9CwMrYCAjQbul19Q7HdIDNlCoYyFLN6458xg1aB0cdZY0wS0eonFeMgoQgnb', '2018-04-29 10:40:30', '2018-04-29 10:40:30'),
+(4, 'Maha', 'maha@gmail.com', '$2y$10$7cuqbm5fpVbwsy6F.QjKIeskAAHI0YYnP67NLUdqlkWIfu8r6oPpq', NULL, '2018-05-01 03:18:04', '2018-05-01 03:18:04');
 
 --
 -- Indexes for dumped tables
@@ -224,6 +312,7 @@ ALTER TABLE `password_resets`
 -- Indexes for table `plants`
 --
 ALTER TABLE `plants`
+  ADD UNIQUE KEY `product_id_2` (`product_id`),
   ADD KEY `product_id` (`product_id`);
 
 --
@@ -238,6 +327,12 @@ ALTER TABLE `posts`
 ALTER TABLE `product`
   ADD PRIMARY KEY (`product_id`),
   ADD UNIQUE KEY `product_product_id_unique` (`product_id`);
+
+--
+-- Indexes for table `seeds`
+--
+ALTER TABLE `seeds`
+  ADD UNIQUE KEY `product-id` (`product-id`);
 
 --
 -- Indexes for table `users`
@@ -266,13 +361,13 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
