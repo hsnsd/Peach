@@ -71,7 +71,7 @@ class PostsController extends Controller
             // Filename to store
             $fileNameToStore= $filename.'_'.time().'.'.$extension;
             // Upload Image
-            $path = $request->file('cover_image')->storeAs('cover_images', $fileNameToStore, 'public_uploads');
+            $path = $request->file('cover_image')->storeAs('/', $fileNameToStore);
         } else {
             $fileNameToStore = 'noimage.jpg';
         }
@@ -142,7 +142,7 @@ class PostsController extends Controller
             // Filename to store
             $fileNameToStore= $filename.'_'.time().'.'.$extension;
             // Upload Image
-            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+            $path = $request->file('cover_image')->storeAs('/', $fileNameToStore);
         }
 
         // Create Post
