@@ -47,6 +47,7 @@
                     </div>
                 </div>
             @endforeach
+
         @else
             <p>No posts found</p>
         @endif
