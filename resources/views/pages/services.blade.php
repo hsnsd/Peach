@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
                     <h1><b><font color="#82C617"> Pick the Gardening Services Trusted by Many in Pakistan </font></b></h1>
-<p class="visible-lg visible-md visible-sm hidden-xs title">The one-stop shop for all garden care services by Peach Blossom Gardeners</p>
+<h3>The one-stop shop for all garden care services by Peach Blossom Gardeners</h3>
                 </div>
             </div>
             <hr>
@@ -15,36 +15,36 @@
                                                                                     
                                                                     <div class="col-md-3 col-sm-4 col-xs-6  service-type-item odd">
                             <a href="https://www.fantasticservices.com/garden-maintenance/">
-                                <img style="width:70%" src="/service1.jpg">
+                                <img style="width:100%" src="/service1.jpg">
                                 <div class="hover"><span class="icon-eye"></span></div>
-                                <p><b>Garden Maintenance</b></p>
+                                <h3><b>Garden Maintenance</b></h3>
                             </a>
                         </div>
                                      
                                     
                                                                     <div class="col-md-3 col-sm-4 col-xs-6  service-type-item even">
                             <a href="https://www.fantasticservices.com/garden-clearance/">
-                                <img style="width:70%" src="/service2.jpg">
+                                <img style="width:100%" src="/service2.jpg">
                                 <div class="hover"><span class="icon-eye"></span></div>
-                                <p><b>Garden Clearance</b></p>
+                                <h3><b>Garden Clearance</b></h3>
                             </a>
                         </div>
                                      
                                     
                                                                     <div class="col-md-3 col-sm-4 col-xs-6  service-type-item odd">
                             <a href="https://www.fantasticservices.com/lawn-care/" >
-                                <img style="width:70%" src="/service3.jpg">
+                                <img style="width:100%" src="/service3.jpg">
                                 <div class="hover"><span class="icon-eye"></span></div>
-                                <p><b>Lawn Care</b></p>
+                                <h3><b>Lawn Care</b></h3>
                             </a>
                         </div>
                                      
                                     
                             <div class="col-md-3 col-sm-4 col-xs-6  service-type-item even">
                             <a href="https://www.fantasticservices.com/tree-surgery/">
-                                <img style="width:70%" src="/service4.jpg">
+                                <img style="width:100%" src="/service4.jpg">
                                 <div class="hover"><span class="icon-eye"></span></div>
-                                <p><b>Tree Surgery</b></p>
+                                <h3><b>Tree Surgery</b></h3>
                             </a>
                         </div>
                                      

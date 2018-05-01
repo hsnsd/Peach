@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1><b><font color="#E26060">Peach Blossom Garden Blogs</font></b></h1>
+    <h1><b><u><font color="#E26060">Peach Blossom Garden Blogs</font></u></b></h1>
+    <hr>
     <a href="/posts/create" class="btn btn-primary">Create Post</a>
+    <hr>
 
     @if(count($posts) > 0)
         @foreach($posts as $post)
