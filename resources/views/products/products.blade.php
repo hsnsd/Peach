@@ -45,6 +45,7 @@
                         </div>
                         <div class="col-md-0 col-sm-0">
                             <h3><a href="/products/{{$product->product_id}}">{{$product->Name}}</a></h3>
+                             <p>Rs. {{$product->Unit_price}}</p>
                         </div>
                     </div>
                 </div>
