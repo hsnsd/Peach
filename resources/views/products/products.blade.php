@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
 <div id="container">
 
 <h1> Filters </h1>
@@ -44,6 +45,24 @@
                         <div class="col-md-0 col-sm-0">
                             <h3><a href="/products/{{$product->product_id}}">{{$product->Name}}</a></h3>
                         </div>
+=======
+       <h1><b>Products</b></h1> 
+    
+
+     <img src="coverPlant.jpg" height="450px" width="900px"/>
+    
+     <hr>
+    @if(count($products) > 0)
+        @foreach($products as $product)
+            <div class="well">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                        <img style="width:40%" src="/{{$product->photo}}">
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <h3><a href="/products/{{$product->id}}">{{$product->name}}</a></h3>
+                        <small> {{$product->description}}</small>
+>>>>>>> 79f2ec1b231040e7a73d830432a161f30962971b
                     </div>
                 </div>
             @endforeach
