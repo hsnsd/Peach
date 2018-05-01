@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<<<<<<< HEAD
+
 <div id="container">
 
-<h1> Filters </h1>
+<h1><b><font color="#F77143"> Buy the correct plants without stepping out of your home! </font></b></h1>
 
         {!! Form::open(['action' => 'ProductsController@store', 'method' =>'POST']) !!}
             <div class="form-group">
@@ -17,7 +17,8 @@
             <div class="form-group">
                     {{ Form::label('a', 'Light Requirements: ') }} 
                     {{ Form::radio('light_type', 'Full') }} {{ Form::label('a', 'Full') }}  
-                    {{ Form::radio('light_type', 'Partial') }} {{ Form::label('name', 'Partial') }} 
+                    {{ Form::radio('light_type', 'Partial') }} {{ Form::label('name', 'Partial') }}
+                    {{ Form::radio('light_type', 'No Light') }} {{ Form::label('name', 'No Light') }} 
 
             </div>
             <div class="form-group">
@@ -28,7 +29,7 @@
 
             </div>
             
-            {{Form::submit('Filter', ['class'=>'btn bt-primary', 'name' => 'submitbutton'])}}
+            {{Form::submit('Filter', ['class'=>'btn bt-primary' , 'name' => 'submitbutton'])}}
             {{Form::submit('Clear', ['class'=>'btn bt-primary', 'name' => 'submitbutton'])}}
 
 
