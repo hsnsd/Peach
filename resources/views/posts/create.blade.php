@@ -34,15 +34,15 @@
         </div>
         <div class="form-group">
             {{Form::label('width', 'Light')}}
-            {{ Form::select('light', ['Full', 'Partial', 'NoLight']) }}
+            {{ Form::select('light', ['Full', 'Partial', 'No Light']) }}
         </div>
         <div class="form-group">
             {{Form::label('width', 'Water')}}
-            {{ Form::select('water', ['1to2days', '2to3days', '6to7days']) }}
+            {{ Form::select('water', ['1 to 2 days', '2 to 3 days', '6 to 7 days']) }}
         </div>
         <div class="form-group">
             {{Form::label('width', 'Plant Type')}}
-            {{ Form::select('plant_type', ['flower', 'leafyplant']) }}
+            {{ Form::select('plant_type', ['flowering plant', 'leafy plant','tree']) }}
         </div>
         <div class="form-group">
                 {{Form::label('width', 'Life')}}
