@@ -21,6 +21,7 @@
                  <br>
                  <p>This is a seed of {{$product->Name}} and is locally known as {{$product->local_name}}</p> 
                  <p>The sowing method for this seed is {{$product->sowing_method}}</p>
+                 <p>{{$status}}</p>
                  
                 </div>
 
