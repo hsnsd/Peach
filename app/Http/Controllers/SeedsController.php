@@ -14,7 +14,7 @@ class SeedsController extends Controller
     public function index()
     {
         $products = DB::select(DB::raw("select * from seeds natural join product"));
-        return view('products.seeds')->with('products', $products);
+        return view('kitchengarden.seeds')->with('products', $products);
     }
 
     /**
@@ -46,7 +46,8 @@ class SeedsController extends Controller
      */
     public function show($id)
     {
-        //
+        $products = DB::select(DB::raw("call select_seeds_by_product_id('$id')"));
+        return view('kitchengarden.show')->with('products', $products);
     }
 
     /**
