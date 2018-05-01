@@ -9,9 +9,9 @@
         {!! Form::open(['action' => 'ProductsController@store', 'method' =>'POST']) !!}
             <div class="form-group">
                     {{ Form::label('a', 'Water Requirements: ') }} 
-                    {{ Form::radio('water_type', '1to2days', true) }} {{ Form::label('a', '1 to 2 days') }}  
-                    {{ Form::radio('water_type', '2to3days', false) }} {{ Form::label('name', '2 to 3 days') }} 
-                    {{ Form::radio('water_type', '6to7days', false) }} {{ Form::label('name', '6 to 7 days') }} 
+                    {{ Form::radio('water_type', '1to2days') }} {{ Form::label('a', '1 to 2 days') }}  
+                    {{ Form::radio('water_type', '2to3days') }} {{ Form::label('name', '2 to 3 days') }} 
+                    {{ Form::radio('water_type', '6to7days') }} {{ Form::label('name', '6 to 7 days') }} 
 
             </div>
             <div class="form-group">

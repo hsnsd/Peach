@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2656eaeb654509ef4cca4f12d8059687850c4061
 <div id="container">
 
 <h1><b><font color="#F77143"> Buy the correct plants without stepping out of your home! </font></b></h1>
@@ -18,7 +21,7 @@
                     {{ Form::label('a', 'Light Requirements: ') }} 
                     {{ Form::radio('light_type', 'Full') }} {{ Form::label('a', 'Full') }}  
                     {{ Form::radio('light_type', 'Partial') }} {{ Form::label('name', 'Partial') }}
-                    {{ Form::radio('light_type', 'No Light') }} {{ Form::label('name', 'No Light') }} 
+                    {{-- {{ Form::radio('light_type', 'No Light') }} {{ Form::label('name', 'No Light') }}  --}}
 
             </div>
             <div class="form-group">
