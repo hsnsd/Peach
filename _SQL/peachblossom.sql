@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 01, 2018 at 07:38 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Host: localhost
+-- Generation Time: May 01, 2018 at 08:09 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,15 +19,40 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `peachblossom`
+-- Database: `peachblossom1`
 --
 
 DELIMITER $$
 --
 -- Procedures
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addPlant` (IN `product_id` INT(11), IN `height` INT(11), IN `width` INT(11), IN `light` VARCHAR(25), IN `water` VARCHAR(25), IN `plant_type` VARCHAR(25), IN `life` VARCHAR(25))  NO SQL
+INSERT into plants  (product_id, height,width,light,water,plant_type,life)
+      values ( product_id, height, width, light, water, plant_type, life)$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addProduct` (IN `name` VARCHAR(191), IN `photo` VARCHAR(191), IN `category_id` INT(11), IN `Unit_price` INT(11))  NO SQL
+INSERT into product (Name, Photo, category_id, Unit_price)
+        values (name, photo, category_id, Unit_price )$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deletePlant` (IN `id` INT(11))  NO SQL
+DELETE from plants where product_id = id$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteProduct` (IN `id` INT(11))  NO SQL
+BEGIN
+DELETE from product where product_id = id;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getAllPlant` ()  NO SQL
+select * from plants natural join product$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getProductCount` ()  NO SQL
+select max(product_id)+1 as count from product$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `select_by_product_id` (IN `id` INT)  NO SQL
 select * from plants natural join product where product_id = id$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_seeds_by_product_id` (IN `id` INT(11))  NO SQL
+select * from seeds natural join product where product_id = id$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `show_plants` ()  NO SQL
 SELECT * from plants join product where plants.product_id = product.product_id$$
@@ -223,19 +248,19 @@ INSERT INTO `products` (`id`, `name`, `photo`, `description`, `property`) VALUES
 --
 
 CREATE TABLE `seeds` (
-  `product-id` int(100) NOT NULL,
+  `product_id` int(100) NOT NULL,
   `Name` varchar(255) DEFAULT NULL,
-  `local-name` varchar(255) DEFAULT NULL,
-  `sowing-time` date DEFAULT NULL,
-  `sowing-time-end` date DEFAULT NULL,
-  `sowing-method` varchar(255) DEFAULT NULL
+  `local_name` varchar(255) DEFAULT NULL,
+  `sowing_time` date DEFAULT NULL,
+  `sowing_time_end` date DEFAULT NULL,
+  `sowing_method` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `seeds`
 --
 
-INSERT INTO `seeds` (`product-id`, `Name`, `local-name`, `sowing-time`, `sowing-time-end`, `sowing-method`) VALUES
+INSERT INTO `seeds` (`product_id`, `Name`, `local_name`, `sowing_time`, `sowing_time_end`, `sowing_method`) VALUES
 (4, 'Arum', 'Arwi', '2018-02-01', '2018-03-31', 'Direct Tubers'),
 (5, 'Bitter Gourd', 'Karela', '2018-02-01', '2018-07-01', 'Direct Seeds'),
 (6, 'Bottle Gourd', 'Kaddu', '2018-02-01', '2018-10-01', 'DirectSeeds'),
@@ -290,7 +315,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (3, 'Soha Khan', 'so@gmail.com', '$2y$10$TFNf7dsF8QZbdPIEvFOdiexx./bo8VP6CukZFt2tK87mGMWI.zO7i', '9CwMrYCAjQbul19Q7HdIDNlCoYyFLN6458xg1aB0cdZY0wS0eonFeMgoQgnb', '2018-04-29 10:40:30', '2018-04-29 10:40:30'),
-(4, 'Maha', 'maha@gmail.com', '$2y$10$7cuqbm5fpVbwsy6F.QjKIeskAAHI0YYnP67NLUdqlkWIfu8r6oPpq', NULL, '2018-05-01 03:18:04', '2018-05-01 03:18:04');
+(4, 'Maha', 'maha@gmail.com', '$2y$10$7cuqbm5fpVbwsy6F.QjKIeskAAHI0YYnP67NLUdqlkWIfu8r6oPpq', NULL, '2018-05-01 03:18:04', '2018-05-01 03:18:04'),
+(5, 'Hassan', 'hassan@iba.com', '$2y$10$HAFnTTf5xTmnp9YMYPRDJ.TOoYGOsJK2R/FQpjGVZeRCwK4ARGaAe', NULL, '2018-05-01 12:57:53', '2018-05-01 12:57:53');
 
 --
 -- Indexes for dumped tables
@@ -332,7 +358,7 @@ ALTER TABLE `product`
 -- Indexes for table `seeds`
 --
 ALTER TABLE `seeds`
-  ADD UNIQUE KEY `product-id` (`product-id`);
+  ADD UNIQUE KEY `product-id` (`product_id`);
 
 --
 -- Indexes for table `users`
@@ -367,7 +393,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@if ($user_id == 4) {{--admin id is 4--}}
+@if ($user_id == 5 or $user_id == 4) {{--admin id is 4--}}
 
     <div class="container">
         <div class="row">
