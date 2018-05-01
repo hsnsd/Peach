@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Input;
+
 
 class ProductsController extends Controller
 {
@@ -15,7 +17,7 @@ class ProductsController extends Controller
     public function index()
     {
         $title = 'About Us';
-        $products = DB::select('SELECT * from products');
+        $products = DB::select(DB::raw("call show_plants()"));
         return view('products.products')->with('products', $products);
     }
 
@@ -37,7 +39,37 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        switch($request->submitbutton) {
+
+            case 'Filter':
+                
+                $c1 = $request->input('water_type');
+                $c2 = $request->input('light_type');
+                $c3 = $request->input('life_type');
+                if (is_null($c1)){
+                    $c1 = '%';
+                }
+                if (is_null($c2)){
+                    $c2 = '%';
+                }
+                if (is_null($c3)){
+                    $c3 = '%';
+                }
+                $products = DB::select(DB::raw("select * from plants natural join product where (water like '$c1' and light like '$c2' and life like '$c3')"));
+
+                return view('products.products')->with('products',$products);
+            break;
+            case 'Clear':
+                $products = DB::select(DB::raw("select * from plants natural join product"));
+                return view('products.filter')->with('products',$products);
+
+            break;
+        }
+
+    }
+
+    public function clear(Request $request){
+
     }
 
     /**
@@ -48,7 +80,7 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-    $products = DB::select(DB::raw("SELECT * from products where id = '$id'"));
+        $products = DB::select(DB::raw("call select_by_product_id('$id')"));
         return view('products.show')->with('products', $products);
     }
 

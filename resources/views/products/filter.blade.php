@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div id="container">
 
 <h1> Filters </h1>
@@ -8,22 +9,22 @@
         {!! Form::open(['action' => 'ProductsController@store', 'method' =>'POST']) !!}
             <div class="form-group">
                     {{ Form::label('a', 'Water Requirements: ') }} 
-                    {{ Form::radio('water_type', '1to2days') }} {{ Form::label('a', '1 to 2 days') }}  
-                    {{ Form::radio('water_type', '2to3days') }} {{ Form::label('name', '2 to 3 days') }} 
-                    {{ Form::radio('water_type', '6to7days') }} {{ Form::label('name', '6 to 7 days') }} 
+                    {{ Form::radio('water_type', '1to2days', true) }} {{ Form::label('a', '1 to 2 days') }}  
+                    {{ Form::radio('water_type', '2to3days', false) }} {{ Form::label('name', '2 to 3 days') }} 
+                    {{ Form::radio('water_type', '6to7days', false) }} {{ Form::label('name', '6 to 7 days') }} 
 
             </div>
             <div class="form-group">
                     {{ Form::label('a', 'Light Requirements: ') }} 
-                    {{ Form::radio('light_type', 'Full') }} {{ Form::label('a', 'Full') }}  
-                    {{ Form::radio('light_type', 'Partial') }} {{ Form::label('name', 'Partial') }} 
+                    {{ Form::radio('light_type', 'Full', false) }} {{ Form::label('a', 'Full') }}  
+                    {{ Form::radio('light_type', 'Partial', false) }} {{ Form::label('name', 'Partial') }} 
 
             </div>
             <div class="form-group">
                     {{ Form::label('a', 'Plant Life: ') }} 
-                    {{ Form::radio('life_type', 'seasonal') }} {{ Form::label('a', 'Seasonal') }}  
-                    {{ Form::radio('life_type', 'annual') }} {{ Form::label('name', 'Annual') }} 
-                    {{ Form::radio('life_type', 'evergreen') }} {{ Form::label('name', 'Evergreen') }} 
+                    {{ Form::radio('life_type', 'seasonal', false) }} {{ Form::label('a', 'Seasonal') }}  
+                    {{ Form::radio('life_type', 'annual', false) }} {{ Form::label('name', 'Annual') }} 
+                    {{ Form::radio('life_type', 'evergreen', false) }} {{ Form::label('name', 'Evergreen') }} 
 
             </div>
             
