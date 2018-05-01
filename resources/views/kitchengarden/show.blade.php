@@ -19,8 +19,8 @@
                 <div class =well>
                 <h2> Description</h2>
                  <br>
-                 <p>This is a seed of {{$product->Name}} and is locally known as {{$product->local_name}}</p> 
-                 <p>The sowing method for this seed is {{$product->sowing_method}}</p>
+                 <p>{{$product->Name}} is locally known as {{$product->local_name}}</p> 
+                 <p>The sowing method for this seed is to use {{$product->sowing_method}}</p>
                  
                 </div>
 
