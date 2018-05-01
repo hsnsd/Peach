@@ -46,8 +46,22 @@ class SeedsController extends Controller
      */
     public function show($id)
     {
-        $products = DB::select(DB::raw("call select_seeds_by_product_id('$id')"));
-        return view('kitchengarden.show')->with('products', $products);
+        $date1 = date('Y-m-d');
+        $date1 = strtotime($date1);
+        $date2 = DB::select(DB::raw("call getEndDate('$id')"));
+        $date2 = strtotime($date2[0]->date);
+        
+        if ($date2<$date1)
+            $status = 'The sowing time has expired. Please wait for the next season';
+        else
+            $status = 'You can still plant this seed! Buy it now and get started.';
+        $data = array(
+            'products' =>DB::select(DB::raw("call select_seeds_by_product_id('$id')")),
+            'status' => $status
+        );
+        
+            
+        return view('kitchengarden.show')->with($data);
     }
 
     /**
