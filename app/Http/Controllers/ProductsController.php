@@ -60,7 +60,7 @@ class ProductsController extends Controller
                 return view('products.products')->with('products',$products);
             break;
             case 'Clear':
-                $products = DB::select(DB::raw("select * from plants natural join product"));
+                $products = DB::select(DB::raw("call getAllPlant()"));
                 return view('products.filter')->with('products',$products);
 
             break;

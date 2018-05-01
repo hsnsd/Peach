@@ -24,8 +24,12 @@ class AdminController extends Controller
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         $products = DB::select(DB::raw("call show_plants()"));
-
-        return view('admin')->with('products', $products);
+        
+        $data = array(
+            'products' => DB::select(DB::raw("call show_plants()")),
+            'user_id' => $user->id
+        );
+        return view('admin')->with($data);
     }
 
     /**
@@ -47,6 +51,8 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+        
+
         $this->validate($request, [
             'product_id' => 'integer|min:0',
             'name' => 'required',
@@ -61,7 +67,9 @@ class AdminController extends Controller
             'life' => 'required'
 
         ]);
-        $product_id = $request->input('product_id');
+        $val = DB::select(DB::raw("call getProductCount()"));
+        $product_id = $val[0]->count;
+
 
         // Handle File Upload
         if($request->hasFile('cover_image')){
@@ -82,16 +90,27 @@ class AdminController extends Controller
         $height = $request->input('height');
         $width = $request->input('width');
         $light = $request->input('light');
+        if ($light == 1){
+            $light = 'Full';
+        }
+        elseif($light == 2){
+            $light = 'Partial';
+        }
+        else{
+            $light = 'Nolight';
+        }
         $water = $request->input('water');
         $plant_type = $request->input('plant_type');
         $life = $request->input('life');
         // Create Post
-        DB::select(DB::raw("INSERT into product (product_id, Name, Photo, category_id, Unit_price)
-        values ('$product_id', '$name', '$fileNameToStore', '$category_id', '$Unit_price' )"));
+        //DB::select(DB::raw("INSERT into product (product_id, Name, Photo, category_id, Unit_price)
+        //values ('$product_id', '$name', '$fileNameToStore', '$category_id', '$Unit_price' )"));
 
-        DB::select(DB::raw("INSERT into plants (product_id, height,width,light,water,plant_type,life )
-        values ('$product_id', '$height', '$width', '$light', '$water', '$plant_type', '$life')"));
+        //DB::select(DB::raw("INSERT into plants (product_id, height,width,light,water,plant_type,life )
+        //values ('$product_id', '$height', '$width', '$light', '$water', '$plant_type', '$life')"));
+        DB::select(DB::raw("call addProduct('$name', '$fileNameToStore','$category_id','$Unit_price')"));
 
+        DB::select(DB::raw("call addPlant('$product_id', '$height', '$width', '$light', '$water', '$plant_type', '$life')"));
         return redirect('/admin')->with('success', 'Post Created');
     }
 
@@ -137,9 +156,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        
-        DB::select(DB::raw("DELETE from plants where product_id = '$id'"));
-        DB::select(DB::raw("DELETE from product where product_id = '$id'"));
+
+        DB::select(DB::raw("call deletePlant('$id')"));
+        DB::select(DB::raw("call deleteProduct('$id')"));
 
         return redirect('/admin')->with('success', 'Product Removed');
     }
