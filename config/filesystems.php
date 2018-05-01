@@ -2,6 +2,8 @@
 
 return [
 
+    
+
     /*
     |--------------------------------------------------------------------------
     | Default Filesystem Disk
@@ -45,13 +47,19 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => public_path(''),
         ],
 
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
+        'my_upload' => [
+            'driver' => 'local',
+            'root' => public_path('files'),
             'visibility' => 'public',
         ],
 
