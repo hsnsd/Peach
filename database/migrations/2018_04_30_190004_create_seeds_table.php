@@ -15,9 +15,10 @@ class CreateSeedsTable extends Migration
     public function up()
     {
         Schema::create('seeds', function (Blueprint $t) {
-            $t->foreign('product-id')->references('product-id')->on('Product');
-            $t->string('category');
+            $t->foreign('product-id')->references('product-id')->on('Product');     
+            $t->primary('seed-id');   
             $t->string('Name');
+            $t->string('Photo');
             $t->string('local_name');
             $t->date('sowingTime');
             $t->date('reapingTime');

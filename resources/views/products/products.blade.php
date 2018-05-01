@@ -1,10 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<<<<<<< HEAD
 
-=======
->>>>>>> 2656eaeb654509ef4cca4f12d8059687850c4061
 <div id="container">
 
 <h1><b><font color="#F77143"> Buy the correct plants without stepping out of your home! </font></b></h1>
@@ -12,16 +9,16 @@
         {!! Form::open(['action' => 'ProductsController@store', 'method' =>'POST']) !!}
             <div class="form-group">
                     {{ Form::label('a', 'Water Requirements: ') }} 
-                    {{ Form::radio('water_type', '1to2days') }} {{ Form::label('a', '1 to 2 days') }}  
-                    {{ Form::radio('water_type', '2to3days') }} {{ Form::label('name', '2 to 3 days') }} 
-                    {{ Form::radio('water_type', '6to7days') }} {{ Form::label('name', '6 to 7 days') }} 
+                    {{ Form::radio('water_type', '1 to 2 days') }} {{ Form::label('a', '1 to 2 days') }}  
+                    {{ Form::radio('water_type', '2 to 3 days') }} {{ Form::label('name', '2 to 3 days') }} 
+                    {{ Form::radio('water_type', '6 to 7 days') }} {{ Form::label('name', '6 to 7 days') }} 
 
             </div>
             <div class="form-group">
                     {{ Form::label('a', 'Light Requirements: ') }} 
                     {{ Form::radio('light_type', 'Full') }} {{ Form::label('a', 'Full') }}  
                     {{ Form::radio('light_type', 'Partial') }} {{ Form::label('name', 'Partial') }}
-                    {{-- {{ Form::radio('light_type', 'No Light') }} {{ Form::label('name', 'No Light') }}  --}}
+                    {{ Form::radio('light_type', 'No Light') }} {{ Form::label('name', 'No Light') }}
 
             </div>
             <div class="form-group">

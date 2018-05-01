@@ -15,6 +15,7 @@ class CreatePlantsTable extends Migration
     {
         Schema::create('plants', function (Blueprint $t) {
             $t->foreign('product-id')->references('product-id')->on('Product');
+            $t->primary('plant-id');
             $t->string('plant-name');
             $t->string('Type');
             $t->string('Height');
