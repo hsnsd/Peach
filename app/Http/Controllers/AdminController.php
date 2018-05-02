@@ -67,17 +67,19 @@ class AdminController extends Controller
             'life' => 'required'
 
         ]);
-        $val = DB::select(DB::raw("call getProductCount()"));
-        $product_id = $val[0]->count;
+        
 
 
         // Handle File Upload
         if($request->hasFile('cover_image')){
-            
+            // Get filename with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             // Get just ext
             $extension = $request->file('cover_image')->getClientOriginalExtension();
             // Filename to store
-            $fileNameToStore= $product_id.'.'.$extension;
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
             // Upload Image
             $path = $request->file('cover_image')->storeAs('/', $fileNameToStore);
         } else {
@@ -90,18 +92,46 @@ class AdminController extends Controller
         $height = $request->input('height');
         $width = $request->input('width');
         $light = $request->input('light');
-        if ($light == 1){
+        if ($light == 0){
             $light = 'Full';
         }
-        elseif($light == 2){
+        elseif($light == 1){
             $light = 'Partial';
         }
         else{
             $light = 'Nolight';
         }
         $water = $request->input('water');
+        if ($water == 0){
+            $water = '1 to 2 days';
+        }
+        elseif($water == 1){
+            $water = '2 to 3 days';
+        }
+        else{
+            $water = '6 to 7 days';
+        }
         $plant_type = $request->input('plant_type');
+        if ($plant_type == 0){
+            $plant_type = 'flowering plant';
+        }
+        elseif($plant_type == 1){
+            $plant_type = 'leafy plant';
+        }
+        else{
+            $plant_type = 'tree';
+        }
         $life = $request->input('life');
+        if ($life == 0){
+            $life = 'seasonal';
+        }
+        elseif($life == 1){
+            $life = 'annual';
+        }
+        else{
+            $life = 'evergreen';
+        }
+        
         // Create Post
         //DB::select(DB::raw("INSERT into product (product_id, Name, Photo, category_id, Unit_price)
         //values ('$product_id', '$name', '$fileNameToStore', '$category_id', '$Unit_price' )"));
@@ -109,7 +139,8 @@ class AdminController extends Controller
         //DB::select(DB::raw("INSERT into plants (product_id, height,width,light,water,plant_type,life )
         //values ('$product_id', '$height', '$width', '$light', '$water', '$plant_type', '$life')"));
         DB::select(DB::raw("call addProduct('$name', '$fileNameToStore','$category_id','$Unit_price')"));
-
+        $val = DB::select(DB::raw("call getProductCount()"));
+        $product_id = $val[0]->count;
         DB::select(DB::raw("call addPlant('$product_id', '$height', '$width', '$light', '$water', '$plant_type', '$life')"));
         return redirect('/admin')->with('success', 'Post Created');
     }
@@ -158,7 +189,7 @@ class AdminController extends Controller
     {
 
         DB::select(DB::raw("call deletePlant('$id')"));
-        DB::select(DB::raw("call deleteProduct('$id')"));
+        //DB::select(DB::raw("call deleteProduct('$id')"));
 
         return redirect('/admin')->with('success', 'Product Removed');
     }

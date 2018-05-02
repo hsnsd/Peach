@@ -24,7 +24,7 @@ class SeedsController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +35,14 @@ class SeedsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $c1 = $request->input('ready');
+        $data = array(
+            'products' => DB::select(DB::raw("select * from seeds natural join product")),
+            'ready' => $c1
+
+        );
+        return view('kitchengarden.filter')->with($data);
+
     }
 
     /**
@@ -62,6 +69,19 @@ class SeedsController extends Controller
         
             
         return view('kitchengarden.show')->with($data);
+    }
+
+    public static function getStatus($id){
+        $date1 = date('Y-m-d');
+        $date1 = strtotime($date1);
+        $date2 = DB::select(DB::raw("call getEndDate('$id')"));
+        $date2 = strtotime($date2[0]->date);
+        
+        if ($date2<$date1)
+            $status = 'All';
+        else
+            $status = 'Yes';
+        return $status;
     }
 
     /**
