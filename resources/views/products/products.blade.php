@@ -4,8 +4,10 @@
 
 <div id="container">
 
-<h1><b><font color="#F77143"> Buy the correct plants without stepping out of your home! </font></b></h1>
+<h1><b><font color="#F77143"> Buy the correct plants without stepping out of your homes! </font></b></h1>
+<hr>
 
+<font size="4">
         {!! Form::open(['action' => 'ProductsController@store', 'method' =>'POST']) !!}
             <div class="form-group">
                     {{ Form::label('a', 'Water Requirements: ') }} 
@@ -34,7 +36,7 @@
 
 
         {!! Form::close() !!}
-
+</font>
         <h1>Products</h1>
         @if(count($products) > 0)
             @foreach($products as $product)
